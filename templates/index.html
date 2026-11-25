@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kestrel Home | Service Routing</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark">K</div>
+      <div>
+        <div class="brand">KESTREL HOME</div>
+        <div class="subbrand">SERVICE REQUEST ROUTING</div>
+      </div>
+      <span class="status {{ 'ready' if model_ready else 'missing' }}">
+        {{ 'MODEL READY' if model_ready else 'MODEL NOT TRAINED' }}
+      </span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">SERVICE DESK WORKSPACE</p>
+      <h1>Route a customer request</h1>
+      <p>Enter the request details to receive a suggested service team and readable reasons.</p>
+    </section>
+
+    {% if not model_ready %}
+    <div class="notice">The model is not available yet. In the project terminal, run <code>python train_model.py</code>, then refresh this page.</div>
+    {% endif %}
+
+    <section class="panel">
+      <form id="route-form">
+        <div class="grid">
+          <label>Channel
+            <select name="channel" required>
+              <option value="chat">Chat</option><option value="whatsapp">WhatsApp</option>
+              <option value="email">Email</option><option value="ivr">IVR</option>
+            </select>
+          </label>
+          <label>Product family
+            <select name="product_family" required>
+              <option>Air Fryer</option><option>Mixer Grinder</option>
+              <option>Water Purifier</option><option>Robot Vacuum</option>
+              <option>Induction Cooktop</option><option>Ceiling Fan</option>
+              <option>Room Heater</option>
+            </select>
+          </label>
+          <label>Warranty status
+            <select name="warranty_status" required>
+              <option value="in_warranty">In warranty</option>
+              <option value="shield">Kestrel Shield</option>
+              <option value="out_of_warranty">Out of warranty</option>
+            </select>
+          </label>
+          <label>Source
+            <select name="source" required>
+              <option value="crm">CRM</option>
+              <option value="legacy_zoho">Legacy Zoho</option>
+            </select>
+          </label>
+        </div>
+        <label class="full">Customer's request
+          <textarea name="request_text" rows="5" required placeholder="Example: Water purifier is leaking from the bottom and has stopped working."></textarea>
+        </label>
+        <button type="submit" id="submit-btn">Predict service team</button>
+      </form>
+    </section>
+
+    <section id="result" class="result hidden" aria-live="polite">
+      <p class="eyebrow">ROUTING RECOMMENDATION</p>
+      <h2 id="team-name">—</h2>
+      <p id="team-scope"></p>
+      <h3>Why this team?</h3>
+      <ul id="reasons"></ul>
+      <p class="disclaimer" id="note"></p>
+    </section>
+    <p id="error" class="error hidden"></p>
+    <footer>Internal decision support · Review ambiguous or multi-issue requests before transfer</footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

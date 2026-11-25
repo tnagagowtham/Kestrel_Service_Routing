@@ -1,0 +1,12 @@
+{
+  "validation_method": "Chronological holdout",
+  "train_rows": 8687,
+  "validation_rows": 2135,
+  "validation_period": "2026-04-01 to 2026-06-30",
+  "accuracy": 0.9672131147540983,
+  "macro_f1": 0.9650039559244152,
+  "errors": 70,
+  "error_rate": 0.03278688524590166,
+  "model": "TF-IDF word + character n-grams; one-hot metadata; LinearSVC(C=1.0)",
+  "note": "Preliminary validation from the uploaded data. Reproduce with python train_model.py."
+}

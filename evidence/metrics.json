@@ -1,0 +1,68 @@
+{
+  "validation_method": "Chronological holdout",
+  "train_period_end_exclusive": "2026-04-01",
+  "validation_period": "2026-04-01 through 2026-06-30",
+  "train_rows": 8687,
+  "validation_rows": 2135,
+  "accuracy": 0.9672131147540983,
+  "macro_f1": 0.9650039559244152,
+  "error_count": 70,
+  "error_rate": 0.032786885245901676,
+  "classification_report": {
+    "Billing": {
+      "precision": 0.9731343283582089,
+      "recall": 0.9848942598187311,
+      "f1-score": 0.978978978978979,
+      "support": 331.0
+    },
+    "Filters & Consumables": {
+      "precision": 0.9419795221843004,
+      "recall": 0.968421052631579,
+      "f1-score": 0.9550173010380623,
+      "support": 285.0
+    },
+    "Installs & Demo": {
+      "precision": 0.9615384615384616,
+      "recall": 0.9782608695652174,
+      "f1-score": 0.9698275862068966,
+      "support": 230.0
+    },
+    "Product Advice": {
+      "precision": 0.963963963963964,
+      "recall": 0.9683257918552036,
+      "f1-score": 0.9661399548532731,
+      "support": 221.0
+    },
+    "Repairs": {
+      "precision": 0.9899665551839465,
+      "recall": 0.9594813614262561,
+      "f1-score": 0.974485596707819,
+      "support": 617.0
+    },
+    "Returns & Replacement": {
+      "precision": 0.9715447154471545,
+      "recall": 0.9484126984126984,
+      "f1-score": 0.9598393574297188,
+      "support": 252.0
+    },
+    "Warranty Claims": {
+      "precision": 0.9323671497584541,
+      "recall": 0.9698492462311558,
+      "f1-score": 0.9507389162561576,
+      "support": 199.0
+    },
+    "accuracy": 0.9672131147540983,
+    "macro avg": {
+      "precision": 0.9620706709192127,
+      "recall": 0.9682350399915487,
+      "f1-score": 0.9650039559244152,
+      "support": 2135.0
+    },
+    "weighted avg": {
+      "precision": 0.9676539598791969,
+      "recall": 0.9672131147540983,
+      "f1-score": 0.9672756080862006,
+      "support": 2135.0
+    }
+  }
+}
